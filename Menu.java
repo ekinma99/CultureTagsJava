@@ -34,7 +34,7 @@ public class Menu {
      * @param selection A number which represents the menu item (Ex: Selecting "1." represents menuItems[0])
      */
     public void select(int selection) {
-        String menuItem = this.menuItemsList.get(selection);
+        String menuItem = this.menuItemsList.get(selection - 1);
         // TODO: Any checking to do here?
         select(menuItem);
     }
@@ -51,6 +51,18 @@ public class Menu {
         // Perform the action
         menuItemToRun.run();
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        int size = this.menuItemsList.size();
+        for (int i = 0; i < size - 1; i++) {
+            sb.append(String.format("%d. %s\n", i+1, this.menuItemsList.get(i)));
+        }
+        sb.append(String.format("%d. %s", size, this.menuItemsList.get(size-1)));
+        return sb.toString();
+    }
+
 
     public static void main(String[] args) {
         
@@ -81,5 +93,8 @@ public class Menu {
         aMenu.select(1); // selects "Add"
         aMenu.select("Update"); // selects "Update"
         aMenu.select(3); // selects "Remove"
+
+        // print the menu
+        System.out.println(aMenu);
     }
 }
