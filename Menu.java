@@ -51,4 +51,35 @@ public class Menu {
         // Perform the action
         menuItemToRun.run();
     }
+
+    public static void main(String[] args) {
+        
+        // Sample usage
+        Menu aMenu = new Menu();
+
+        // setup the menu
+        aMenu.onSelect("Add", new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Added.");
+            }
+        });
+        aMenu.onSelect("Update", new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Updated.");
+            }
+        });
+        aMenu.onSelect("remove", new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Removed.");
+            }
+        });
+
+        // to select a menu item
+        aMenu.select(1); // selects "Add"
+        aMenu.select("Update"); // selects "Update"
+        aMenu.select(3); // selects "Remove"
+    }
 }
