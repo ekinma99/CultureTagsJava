@@ -6,11 +6,15 @@ import java.io.*;
 import java.util.*;
 
 class Card {
+    /* A card needs to have:
+    * Phrase
+    * Category */ 
+     
     private String phrase;
-    private String description;
-    public Card(String phrase, String description) {
+    private String category;
+    public Card(String phrase, String category) {
         this.phrase = phrase;
-        this.description = description;
+        this.category = category;
     }
     public String getPhrase() {
         return phrase;
@@ -18,11 +22,11 @@ class Card {
     public void setPhrase(String phrase) {
         this.phrase = phrase;
     }
-    public String getDescription() {
-        return description;
+    public String getCategory() {
+        return category;
     }
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
 
@@ -44,7 +48,10 @@ class CardDeck {
     /**
      * The map of each phrase to its description
      */
-    private Map<String, String> phraseDescriptionMap;
+    private Map<String, String> phraseCategoryMap;
+    
+    // A var for storing the acronym
+    // A map for storing the phrase & category
 
     /**
      * A flag to remember if any cards were removed
@@ -54,7 +61,7 @@ class CardDeck {
     CardDeck() {
         cards = new ArrayList<>();
         addedCards = new ArrayList<>();
-        phraseDescriptionMap = new HashMap<>();
+        phraseCategoryMap = new HashMap<>();
         removedFlag = false;
     }
 
@@ -64,7 +71,7 @@ class CardDeck {
      */
     void addCard(Card card) {
         // add the card to the map only if its not in the map
-        if (phraseDescriptionMap.putIfAbsent(card.getPhrase(), card.getDescription()) == null) {
+        if (phraseCategoryMap.putIfAbsent(card.getPhrase(), card.getCategory()) == null) {
             // also keep track of it in the list
             addedCards.add(card);
         } else {
@@ -78,11 +85,11 @@ class CardDeck {
      */
     void removeCard(Card card) {
         // check if the card actually exists in the deck
-        if (phraseDescriptionMap.containsKey(card.getPhrase())) {
+        if (phraseCategoryMap.containsKey(card.getPhrase()) || phraseCategoryMap.containsValue(card.getCategory()) {
             // remove the card from the list and map, and note that
             // there has been a card removed from the deck (see exportCards)
             cards.remove(card);
-            phraseDescriptionMap.remove(card.getPhrase());
+            phraseCategoryMap.remove(card.getPhrase());
             removedFlag = true;
         }
     }
@@ -94,25 +101,25 @@ class CardDeck {
      */
     void loadCards(String filename) {
         try {
-            File inputFile = new File(filename);
-            FileReader fileReader = new FileReader(inputFile);
-            BufferedReader br = new BufferedReader(fileReader);
+            File inputFile = new File(filename); // creates variable of the file 
+            FileReader fileReader = new FileReader(inputFile); // the var created the line before is the parameter 
+            BufferedReader br = new BufferedReader(fileReader); 
 
-            // Get the next two lines (phrase and description)
-            String phrase = br.readLine();
-            String description = br.readLine();
+            // Get the next two lines (phrase and category)
+            String phrase = br.readLine(); //reads phrase
+            String category = br.readLine(); // reads category
             
             while (phrase != null) {
 
-                // make a new card out of each two lines (phrase and description)
+                // make a new card out of each two lines (phrase and category)
                 // and put it in the map
 
-                cards.add(new Card(phrase, description));
-                phraseDescriptionMap.put(phrase, description);
+                cards.add(new Card(phrase, category)); // create a card
+                phraseCategoryMap.put(phrase, category); //inputs it as map
 
                 // Get the next two lines
                 phrase = br.readLine();
-                description = br.readLine();
+                category = br.readLine();
             }
 
             br.close();
@@ -131,14 +138,14 @@ class CardDeck {
     */
     void exportCards(String filename) {
         try {
-            File inputFile = new File(filename);
+            File inputFile = new File(filename); // The user chooses the file
             FileWriter fileWriter = new FileWriter(inputFile);
             BufferedWriter bw = new BufferedWriter(fileWriter);
 
             if (!removedFlag) {
                 // if we didnt remove anything, just write the added cards
                 for (Card card : addedCards) {
-                    bw.write(String.format("%s\n%s\n", card.getPhrase(), card.getDescription()));
+                    bw.write(String.format("%s\n%s\n", card.getPhrase(), card.getCategory()));
                 }
             } else {
                 // re-create the file writer to overwrite the file, so that
@@ -146,9 +153,9 @@ class CardDeck {
                 bw.close();
                 fileWriter = new FileWriter(inputFile, false);
                 bw = new BufferedWriter(fileWriter);
-                for (String phrase : phraseDescriptionMap.keySet()) {
-                    String description = phraseDescriptionMap.get(phrase);
-                    bw.write(String.format("%s\n%s\n", phrase, description));
+                for (String phrase : phraseCategoryMap.keySet()) {
+                    String category = phraseCategoryMap.get(phrase);
+                    bw.write(String.format("%s\n%s\n", phrase, category));
                 }
             }
 
@@ -183,7 +190,7 @@ public class Main {
         dealer.addCard(new Card("card C", "description of card C."));
         dealer.addCard(new Card("card D", "description of card D."));
 
-        // Export these new Cards to a file
+        // Export these new Cards to a file; TO-DO: will need to remove this later
         dealer.exportCards("input2.txt");
 
     }
