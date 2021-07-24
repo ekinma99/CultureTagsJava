@@ -2,6 +2,7 @@
  * Cards from https://www.thoughtco.com/common-english-idioms-3211646
  */
 
+<<<<<<< HEAD
 import java.io.*;
 import java.util.*;
 
@@ -170,6 +171,8 @@ class CardDeck {
 
 }
 
+=======
+>>>>>>> 5b96f5eb1ac44d57930865844bcf7ea861016541
 public class Main {
 
     public static void main(String[] args) {
