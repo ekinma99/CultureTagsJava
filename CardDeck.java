@@ -18,7 +18,7 @@ public class CardDeck {
     /**
      * The cards in the deck
      */
-    private List<Card> cards;
+    private List<Card> cardsList;
 
     /**
      * The cards that were newly added
@@ -26,9 +26,9 @@ public class CardDeck {
     private List<Card> addedCards;
 
     /**
-     * The map of each phrase to its description
+     * The map of each phrase to its category
      */
-    private Map<String, String> phraseDescriptionMap;
+    private Map<String, String> phraseCategoryMap;
 
     /**
      * A flag to remember if any cards were removed
@@ -36,9 +36,9 @@ public class CardDeck {
     private boolean removedFlag;
 
     CardDeck() {
-        cards = new ArrayList<>();
+        cardsList = new ArrayList<>();
         addedCards = new ArrayList<>();
-        phraseDescriptionMap = new HashMap<>();
+        phraseCategoryMap = new HashMap<>();
         removedFlag = false;
     }
 
@@ -48,7 +48,7 @@ public class CardDeck {
      */
     void addCard(Card card) {
         // add the card to the map only if its not in the map
-        if (phraseDescriptionMap.putIfAbsent(card.getPhrase(), card.getDescription()) == null) {
+        if (phraseCategoryMap.putIfAbsent(card.getPhrase(), card.getCategory()) == null) {
             // also keep track of it in the list
             addedCards.add(card);
         } else {
@@ -62,11 +62,11 @@ public class CardDeck {
      */
     void removeCard(Card card) {
         // check if the card actually exists in the deck
-        if (phraseDescriptionMap.containsKey(card.getPhrase())) {
+        if (phraseCategoryMap.containsKey(card.getPhrase())) {
             // remove the card from the list and map, and note that
             // there has been a card removed from the deck (see exportCards)
-            cards.remove(card);
-            phraseDescriptionMap.remove(card.getPhrase());
+            cardsList.remove(card);
+            phraseCategoryMap.remove(card.getPhrase());
             removedFlag = true;
         }
     }
@@ -78,25 +78,24 @@ public class CardDeck {
      */
     void loadCards(String filename) {
         try {
-            File inputFile = new File(filename);
-            FileReader fileReader = new FileReader(inputFile);
+            FileReader fileReader = new FileReader(filename);
             BufferedReader br = new BufferedReader(fileReader);
 
-            // Get the next two lines (phrase and description)
+            // Read the next two lines (phrase and description)
             String phrase = br.readLine();
-            String description = br.readLine();
+            String category = br.readLine();
             
             while (phrase != null) {
 
-                // make a new card out of each two lines (phrase and description)
+                // make a new card out of each two lines (phrase and category)
                 // and put it in the map
 
-                cards.add(new Card(phrase, description));
-                phraseDescriptionMap.put(phrase, description);
+                cardsList.add(new Card(phrase, category));
+                phraseCategoryMap.put(phrase, category);
 
                 // Get the next two lines
                 phrase = br.readLine();
-                description = br.readLine();
+                category = br.readLine();
             }
 
             br.close();
@@ -115,24 +114,23 @@ public class CardDeck {
     */
     void exportCards(String filename) {
         try {
-            File inputFile = new File(filename);
-            FileWriter fileWriter = new FileWriter(inputFile);
+            FileWriter fileWriter = new FileWriter(filename);
             BufferedWriter bw = new BufferedWriter(fileWriter);
 
             if (!removedFlag) {
                 // if we didnt remove anything, just write the added cards
                 for (Card card : addedCards) {
-                    bw.write(String.format("%s\n%s\n", card.getPhrase(), card.getDescription()));
+                    bw.write(String.format("%s\n%s\n", card.getPhrase(), card.getCategory()));
                 }
             } else {
                 // re-create the file writer to overwrite the file, so that
                 // we exclude the removed cards
                 bw.close();
-                fileWriter = new FileWriter(inputFile, false);
+                fileWriter = new FileWriter(filename, false);
                 bw = new BufferedWriter(fileWriter);
-                for (String phrase : phraseDescriptionMap.keySet()) {
-                    String description = phraseDescriptionMap.get(phrase);
-                    bw.write(String.format("%s\n%s\n", phrase, description));
+                for (String phrase : phraseCategoryMap.keySet()) {
+                    String category = phraseCategoryMap.get(phrase);
+                    bw.write(String.format("%s\n%s\n", phrase, category));
                 }
             }
 
@@ -144,5 +142,28 @@ public class CardDeck {
             e.printStackTrace();
         }
     }
+
+    public static void main(String[] args) {
+        
+        String filename = "input.txt";
+        
+        // Load pre-made cards from a file
+        CardDeck dealer = new CardDeck();
+        dealer.loadCards(filename);
+        
+        
+        // Make a new empty CardDealer
+        dealer = new CardDeck();
+
+        // Add some cards
+        dealer.addCard(new Card("card A", "description of card A."));
+        dealer.addCard(new Card("card B", "description of card B."));
+        dealer.addCard(new Card("card C", "description of card C."));
+        dealer.addCard(new Card("card D", "description of card D."));
+
+        // Export these new Cards to a file; TO-DO: will need to remove this later
+        dealer.exportCards("input2.txt");
+
+    }    
 
 }
