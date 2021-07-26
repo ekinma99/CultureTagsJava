@@ -1,9 +1,13 @@
 public class Card {
+    /* A card needs to have:
+    * Phrase
+    * Category */ 
+     
     private String phrase;
-    private String description;
-    public Card(String phrase, String description) {
+    private String category;
+    public Card(String phrase, String category) {
         this.phrase = phrase;
-        this.description = description;
+        this.category = category;
     }
     public String getPhrase() {
         return phrase;
@@ -11,10 +15,10 @@ public class Card {
     public void setPhrase(String phrase) {
         this.phrase = phrase;
     }
-    public String getDescription() {
-        return description;
+    public String getCategory() {
+        return category;
     }
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
