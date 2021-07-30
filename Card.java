@@ -1,3 +1,5 @@
+package com.culturetagsjava;
+
 public class Card {
     /* A card needs to have:
     * Phrase
