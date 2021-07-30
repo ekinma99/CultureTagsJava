@@ -1,4 +1,4 @@
-package com.company;
+package com.culturetagsjava;
 
 import java.util.Scanner;
 
@@ -54,7 +54,7 @@ public class Main {
     }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-package com.company;
+package com.culturetagsjava;
 
 import java.util.Scanner;
 
@@ -229,7 +229,7 @@ public class Logic {
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-package com.company;
+package com.culturetagsjava;
 
 import java.util.Scanner;
 
@@ -246,7 +246,7 @@ public  class  Guess {
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-package com.company;
+package com.culturetagsjava;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -324,7 +324,7 @@ public class TeamA implements TeamsFeatures {
     }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-package com.company;
+package com.culturetagsjava;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -393,7 +393,7 @@ public class TeamB implements TeamsFeatures {
     }
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-package com.company;
+package com.culturetagsjava;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -446,7 +446,7 @@ public class DealCards {
 
 }
 //////////////////////////////////////////////////////////////
-package com.company;
+package com.culturetagsjava;
 
 public interface TeamsFeatures {
      void getPlayers();
