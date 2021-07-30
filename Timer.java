@@ -1,3 +1,5 @@
+package com.culturetagsjava;
+
 //Countdown timer
 
 import java.util.Scanner;
