@@ -1,4 +1,4 @@
-package CultureTags;
+package com.culturetagsjava;
 
 public class Instructions {
 
