@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Timer {
+public class GameTimer {
   static int interval;
   static Timer timer;
   
