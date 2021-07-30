@@ -1,3 +1,5 @@
+package com.culturetagsjava;
+
 public class Utils {
     
     public static void clearScreen() {
