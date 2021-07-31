@@ -42,7 +42,7 @@ public class TeamA implements TeamsFeatures {
 
     // Assign cards to players
     @Override
-    public String AssingCardsPlayer1(int position) {
+    public String AssignCardsPlayer1(int position) {
         for (int i = 0; i < counter; i++) {
         }
             return team[position];

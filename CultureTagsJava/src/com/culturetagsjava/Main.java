@@ -47,9 +47,9 @@ public class Main {
         // card with the letters and hint is assingned
         // the other team start guessing each =one have one opportunity
         System.out.println("________________________________________________");
-        String playerA = tA.AssingCardsPlayer1(1);
+        String playerA = tA.AssignCardsPlayer1(1);
         logic.assignCardsToLettersA(b, c, playerA, tA, amountOfPlayersA);
-        String playerB = tB.AssingCardsPlayer1(1);
+        String playerB = tB.AssignCardsPlayer1(1);
         logic.assignCardsToLettersB(b, c, playerB, tB, amountOfPlayersB);
     }
 }

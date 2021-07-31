@@ -30,7 +30,7 @@ public class TeamB implements TeamsFeatures {
     }
 
     @Override
-    public String AssingCardsPlayer1(int position) {
+    public String AssignCardsPlayer1(int position) {
         for (int i = 0; i < counter; i++) {
         }
         return team[position];
