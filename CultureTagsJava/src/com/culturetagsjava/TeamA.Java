@@ -10,12 +10,13 @@ public class TeamA implements TeamsFeatures {
     DealCards dealCards = new DealCards();
     ArrayList c = dealCards.cards();
 
-    //Setting amount of players in team in dynamic array
+    // Setting amount of players in team in dynamic array
     public TeamA(int amountOfPlayers) {
         team = new String[amountOfPlayers];
     }
 
-    //Adding players to Array, if Array is filled it automatically generates more space in memory
+    // Adding players to Array, if Array is filled it automatically generates more
+    // space in memory
     public void addPlayer(String newPlayer) {
         if (team.length == counter) {
             String[] teamResize = new String[counter * 2];
@@ -26,15 +27,16 @@ public class TeamA implements TeamsFeatures {
         team[counter++] = newPlayer;
     }
 
-    //printing all players if needed
+    // printing all players if needed
     @Override
     public void getPlayers() {
         for (int i = 0; i < counter; i++) {
         }
         System.out.println(Arrays.toString(team));
     }
+
     @Override
-    public String playerTurn(int position){
+    public String playerTurn(int position) {
         for (int i = 0; i < counter; i++) {
         }
         return team[position];
@@ -45,31 +47,32 @@ public class TeamA implements TeamsFeatures {
     public String AssignCardsPlayer1(int position) {
         for (int i = 0; i < counter; i++) {
         }
-            return team[position];
+        return team[position];
     }
 
     // Assigned card
     @Override
-    public String assignedCard(){
+    public String assignedCard() {
         String x = (String) c.get(0);
         return x;
     }
 
     @Override
-    //Checking amount of players and compare to the other team. both should be equal
+    // Checking amount of players and compare to the other team. both should be
+    // equal
     public int amountOfPlayers() {
         int x = 0;
         for (int i = 0; i < counter; i++) {
             if (team[i] == null)
                 break;
-                x = i;
+            x = i;
         }
-        return x+1;
+        return x + 1;
     }
 
-    //team with biggest number start guessing
+    // team with biggest number start guessing
     @Override
-    public int startGuessing(){
+    public int startGuessing() {
         Random rand = new Random();
         int number = rand.nextInt(10);
         return number;
