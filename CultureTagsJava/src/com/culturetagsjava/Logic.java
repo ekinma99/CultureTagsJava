@@ -77,7 +77,7 @@ public class Logic {
         int counter = 0;
         String hint = "";
         if (b > c) {
-            playerA = tA.AssingCardsPlayer1(1);
+            playerA = tA.AssignCardsPlayer1(1);
             String assignedCard = tA.assignedCard();
             if (assignedCard.contains("WW2")) {
                 assignedCard = ww2;
@@ -116,7 +116,7 @@ public class Logic {
         int counter = 0;
         String hint = "";
         if (b < c) {
-            playerB = tB.AssingCardsPlayer1(1);
+            playerB = tB.AssignCardsPlayer1(1);
             String assignedCard = tB.assignedCard();
             if (assignedCard.contains("WW2")) {
                 assignedCard = ww2;
