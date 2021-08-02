@@ -1,4 +1,5 @@
 package com.culturetagsjava;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -45,6 +46,7 @@ public class CardDeck {
 
     /**
      * Adds a card if it is not already in the deck
+     * 
      * @param card The card to add
      */
     void addCard(Card card) {
@@ -56,9 +58,10 @@ public class CardDeck {
             // card already exists
         }
     }
-    
+
     /**
      * Removes a cards from the card deck
+     * 
      * @param card The card to remove
      */
     void removeCard(Card card) {
@@ -73,8 +76,8 @@ public class CardDeck {
     }
 
     /**
-     * Reads the cards from a file and loads them into the list
-     * and map
+     * Reads the cards from a file and loads them into the list and map
+     * 
      * @param filename
      */
     void loadCards(String filename) {
@@ -85,7 +88,7 @@ public class CardDeck {
             // Read the next two lines (phrase and description)
             String phrase = br.readLine();
             String category = br.readLine();
-            
+
             while (phrase != null) {
 
                 // make a new card out of each two lines (phrase and category)
@@ -109,10 +112,11 @@ public class CardDeck {
     }
 
     /**
-     * Updates the file so that it has all the new cards and doesn't
-     * have the removed ones
+     * Updates the file so that it has all the new cards and doesn't have the
+     * removed ones
+     * 
      * @param filename Which file to write the cards to
-    */
+     */
     void exportCards(String filename) {
         try {
             FileWriter fileWriter = new FileWriter(filename);
@@ -145,14 +149,13 @@ public class CardDeck {
     }
 
     public static void main(String[] args) {
-        
+
         String filename = "input.txt";
-        
+
         // Load pre-made cards from a file
         CardDeck dealer = new CardDeck();
         dealer.loadCards(filename);
-        
-        
+
         // Make a new empty CardDealer
         dealer = new CardDeck();
 
@@ -165,6 +168,6 @@ public class CardDeck {
         // Export these new Cards to a file; TO-DO: will need to remove this later
         dealer.exportCards("input2.txt");
 
-    }    
+    }
 
 }

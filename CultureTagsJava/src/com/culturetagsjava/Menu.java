@@ -14,16 +14,16 @@ public class Menu {
         this.menuMap = new HashMap<>();
         this.menuItemsList = new ArrayList<>();
     }
-    
+
     /**
-     * Setup a method to run when a user selects a menu item.
-     * Note: calling this method twice on the same menu item replaces
-     * the previous runnable.
-     * @param menuItem The user's selected menu item
+     * Setup a method to run when a user selects a menu item. Note: calling this
+     * method twice on the same menu item replaces the previous runnable.
+     * 
+     * @param menuItem       The user's selected menu item
      * @param runOnSelection The action to run upon user selection
      */
     public void onSelect(String menuItem, Runnable runOnSelection) {
-        
+
         // Keep track of the order of menu items
         this.menuItemsList.add(menuItem);
 
@@ -33,7 +33,9 @@ public class Menu {
 
     /**
      * Called when a user selects a menuItem
-     * @param selection A number which represents the menu item (Ex: Selecting "1." represents menuItems[0])
+     * 
+     * @param selection A number which represents the menu item (Ex: Selecting "1."
+     *                  represents menuItems[0])
      */
     public void select(int selection) {
         String menuItem = this.menuItemsList.get(selection - 1);
@@ -43,10 +45,11 @@ public class Menu {
 
     /**
      * Called when a user selects a menuItem
+     * 
      * @param menuItem The menu item which the user selected
      */
     public void select(String menuItem) {
-        
+
         // Get the action to run which corresponds with the users
         Runnable menuItemToRun = this.menuMap.get(menuItem);
 
@@ -59,15 +62,14 @@ public class Menu {
         StringBuilder sb = new StringBuilder();
         int size = this.menuItemsList.size();
         for (int i = 0; i < size - 1; i++) {
-            sb.append(String.format("%d. %s\n", i+1, this.menuItemsList.get(i)));
+            sb.append(String.format("%d. %s\n", i + 1, this.menuItemsList.get(i)));
         }
-        sb.append(String.format("%d. %s", size, this.menuItemsList.get(size-1)));
+        sb.append(String.format("%d. %s", size, this.menuItemsList.get(size - 1)));
         return sb.toString();
     }
 
-
     public static void main(String[] args) {
-        
+
         // Sample usage
         Menu aMenu = new Menu();
 
