@@ -8,7 +8,7 @@ public class TeamB implements TeamsFeatures {
     String[] team;
     int counter;
     DealCards dealCards = new DealCards();
-    ArrayList c = dealCards.cards();
+    ArrayList<String> c = dealCards.cards();
 
     // Setting amount of players in team in dynamic array
     public TeamB(int amountOfPlayers) {
