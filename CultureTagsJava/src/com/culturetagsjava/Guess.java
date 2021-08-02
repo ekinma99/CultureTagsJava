@@ -10,7 +10,7 @@ public class Guess {
     public String myScanner() {
         Scanner sc = new Scanner(System.in);
         String word = sc.nextLine();
-
+        sc.close();
         return word;
     }
 

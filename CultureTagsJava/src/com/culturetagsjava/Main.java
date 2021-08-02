@@ -50,5 +50,7 @@ public class Main {
         logic.assignCardsToLettersA(b, c, playerA, tA, amountOfPlayersA);
         String playerB = tB.AssignCardsPlayer1(1);
         logic.assignCardsToLettersB(b, c, playerB, tB, amountOfPlayersB);
+
+        sc.close();
     }
 }

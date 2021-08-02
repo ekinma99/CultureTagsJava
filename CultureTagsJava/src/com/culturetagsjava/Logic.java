@@ -57,7 +57,7 @@ public class Logic {
             tA.addPlayer(player);
             count++;
         } while (count < amountOfpPlayers);
-
+        sc.close();
     }
 
     public void addPlayerB(String player, TeamB tB, int amountOfpPlayers) {
@@ -69,7 +69,7 @@ public class Logic {
             tB.addPlayer(player);
             count++;
         } while (count < amountOfpPlayers);
-
+        sc.close();
     }
 
     public void assignCardsToLettersA(int b, int c, String playerA, TeamA tA, int amountOfPlayersA)

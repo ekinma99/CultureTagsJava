@@ -27,6 +27,7 @@ public class GameTimer {
 
       }
     }, delay, period);
+    sc.close();
   }
 
   private static final int setInterval() {
