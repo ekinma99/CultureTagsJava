@@ -1,4 +1,4 @@
-package culturetagsjava;
+package com.culturetagsjava;
 import java.util.Scanner;
 public class ConsoleMenu{
 // 3 menu options

@@ -1,4 +1,4 @@
-package culturetagsjava;
+package com.culturetagsjava;
 
 import java.util.ArrayList;
 import java.util.Collections;

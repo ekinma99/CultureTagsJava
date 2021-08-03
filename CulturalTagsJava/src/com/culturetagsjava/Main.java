@@ -1,5 +1,5 @@
-package culturetagsjava;
-import culturetagsjava.Logic;
+package com.culturetagsjava;
+// import culturetagsjava.Logic;
 import java.util.Scanner;
 
 public class Main {

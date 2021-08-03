@@ -1,4 +1,4 @@
-package culturetagsjava;
+package com.culturetagsjava;
 
 public interface TeamsFeatures {
      void getPlayers();
