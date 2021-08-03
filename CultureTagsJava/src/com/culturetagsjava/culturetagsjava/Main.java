@@ -1,14 +1,16 @@
-package com.culturetagsjava;
-
+package culturetagsjava;
+import culturetagsjava.Logic;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException {
-            //new GUI();
-        Scanner sc = new Scanner(System.in);
-       Logic logic = new Logic();
-
+    public static void main(String[] args){
+      
+      }
+      public Main() throws InterruptedException{ 
+          //new GUI();
+         Scanner sc = new Scanner(System.in);
+         Logic logic = new Logic();
 
          //Adding players Team  A and B
         logic.textPlayersA();

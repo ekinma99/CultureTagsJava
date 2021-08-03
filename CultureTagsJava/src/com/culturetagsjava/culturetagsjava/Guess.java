@@ -1,8 +1,9 @@
-package com.culturetagsjava;
+package culturetagsjava;
 
 import java.util.Scanner;
 
 public  class  Guess {
+    public Guess(){}
     public String myGuess(String word){
         return word;
     }

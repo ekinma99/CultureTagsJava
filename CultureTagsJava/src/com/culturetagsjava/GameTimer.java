@@ -1,4 +1,4 @@
-package com.culturetagsjava;
+//package com.culturetagsjava;
 
 //Countdown timer
 
@@ -9,7 +9,7 @@ import java.util.TimerTask;
 public class GameTimer {
   static int interval;
   static Timer timer;
-  
+  public GameTimer(){}
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     System.out.print("Input seconds => : ");

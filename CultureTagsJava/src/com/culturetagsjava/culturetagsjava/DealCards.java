@@ -1,4 +1,4 @@
-package com.culturetagsjava;
+package culturetagsjava;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,6 +6,7 @@ import java.util.Collections;
 
 public class DealCards {
     //These are supposed to be the cards
+    public DealCards(){}
    private String a = "WW2";String b = "MMA";String c = "LALALAND";
             String d = "RT";String f = "WTH";String g = "FTP";
 
