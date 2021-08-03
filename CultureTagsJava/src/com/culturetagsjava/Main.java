@@ -56,7 +56,7 @@ public class Main {
             String playerB = tB.AssignCardsPlayer1(1);
             this.logic.assignCardsToLetters(b, c, playerB, tB, tB.__getTeam().length);
 
-            scanner.close();
+            this.scanner.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -64,10 +64,11 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Logic logic = new Logic();
+        DealCards dealCards = new DealCards();
+        Guess guess = new Guess();
+        Logic logic = new Logic(scanner, dealCards, guess);
 
         Main main = new Main(scanner, logic);
         main.run();
-
     }
 }

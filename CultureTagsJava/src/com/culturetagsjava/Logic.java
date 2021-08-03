@@ -3,15 +3,22 @@ package com.culturetagsjava;
 import java.util.Scanner;
 
 public class Logic {
-    DealCards cardMeaning = new DealCards();
-    Guess guess = new Guess();
+    private Scanner scanner;
+    private DealCards cardMeaning;
+    private Guess guess;
 
     private String wth = cardMeaning.wth();
-    String lalaland = cardMeaning.lalaland();
-    String mma = cardMeaning.mma();
-    String ww2 = cardMeaning.ww2();
-    String rt = cardMeaning.rt();
-    String ftp = cardMeaning.ftp();
+    private String lalaland = cardMeaning.lalaland();
+    private String mma = cardMeaning.mma();
+    private String ww2 = cardMeaning.ww2();
+    private String rt = cardMeaning.rt();
+    private String ftp = cardMeaning.ftp();
+
+    public Logic(Scanner scanner, DealCards dealCards, Guess guess) {
+        this.scanner = scanner;
+        this.cardMeaning = dealCards;
+        this.guess = guess;
+    }
 
     public void textPlayers(String team) {
         if (!team.equals("A") || !team.equals("B")) {
@@ -63,15 +70,13 @@ public class Logic {
     }
 
     public void addPlayer(String player, Team team, int amountOfPlayers) {
-        Scanner sc = new Scanner(System.in);
         int count = 0;
         do {
             System.out.println("insert players");
-            player = sc.nextLine();
+            player = this.scanner.nextLine();
             team.addPlayer(player);
             count++;
         } while (count < amountOfPlayers);
-        sc.close();
     }
 
     public void assignCardsToLetters(int b, int c, String player, Team t, int amountOfPlayers) {
