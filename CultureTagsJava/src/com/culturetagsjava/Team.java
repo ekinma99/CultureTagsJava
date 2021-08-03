@@ -9,10 +9,24 @@ public class Team implements TeamsFeatures {
     int counter;
     DealCards dealCards = new DealCards();
     ArrayList<String> c = dealCards.cards();
+    private String teamName;
+    private static int numberOfInstances = 0;
 
     // Setting amount of players in team in dynamic array
     public Team(int amountOfPlayers) {
+        Team.numberOfInstances++;
         team = new String[amountOfPlayers];
+        switch (Team.numberOfInstances) {
+            case 1:
+                this.teamName = "A";
+                break;
+            case 2:
+                this.teamName = "B";
+                break;
+        
+            default:
+                break;
+        }
     }
 
     // Adding players to Array, if Array is filled it automatically generates more
@@ -76,5 +90,16 @@ public class Team implements TeamsFeatures {
         Random rand = new Random();
         int number = rand.nextInt(10);
         return number;
+    }
+
+    
+    // added
+
+    public String[] __getTeam() {
+        return this.team;
+    }
+
+    public String getTeamName() {
+        return this.teamName;
     }
 }
