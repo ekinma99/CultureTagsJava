@@ -5,10 +5,11 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Team implements TeamsFeatures {
-    String[] team;
-    int counter;
-    DealCards dealCards = new DealCards();
-    ArrayList<String> c = dealCards.cards();
+
+    private String[] team;
+    private int counter;
+    private DealCards dealCards = new DealCards();
+    private ArrayList<String> c = dealCards.cards();
     private String teamName;
     private static int numberOfInstances = 0;
 

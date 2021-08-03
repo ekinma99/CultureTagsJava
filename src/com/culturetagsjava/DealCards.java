@@ -6,11 +6,11 @@ import java.util.Collections;
 public class DealCards {
     // These are supposed to be the cards
     private String a = "WW2";
-    String b = "MMA";
-    String c = "LALALAND";
-    String d = "RT";
-    String f = "WTH";
-    String g = "FTP";
+    private String b = "MMA";
+    private String c = "LALALAND";
+    private String d = "RT";
+    private String f = "WTH";
+    private String g = "FTP";
 
     public String ww2() {
         String a = "war world 2";
@@ -43,10 +43,10 @@ public class DealCards {
     }
 
     // Cards are stored in this arrayList
-    ArrayList<String> cards = new ArrayList<String>();
+    private ArrayList<String> cards = new ArrayList<String>();
 
     // Here Cards are shuffle so user dont sam ecards everytime.
-    ArrayList<String> cards() {
+    public ArrayList<String> cards() {
         cards.add(a);
         cards.add(b);
         cards.add(c);

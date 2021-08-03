@@ -28,26 +28,6 @@ public class Logic {
         }
     }
 
-    public void __textPlayersA() {
-        System.out.println("enter amount of players for team A");
-    }
-
-    public void __textPlayersB() {
-        System.out.println("enter amount of players for team B");
-    }
-
-    public void __enterPlayerName() {
-        System.out.println("enter players name");
-    }
-
-    public int __amountOfPlayersA(int players) {
-        return players;
-    }
-
-    public int __amountOfPlayersB(int players) {
-        return players;
-    }
-
     public boolean compareAmountOfMembers(Team tA, Team tB) {
         if (tA.amountOfPlayers() != tB.amountOfPlayers()) {
             System.out.println("teams are not even");

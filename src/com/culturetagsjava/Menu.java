@@ -7,8 +7,8 @@ import java.util.Map;
 
 public class Menu {
 
-    Map<String, Runnable> menuMap;
-    List<String> menuItemsList;
+    private Map<String, Runnable> menuMap;
+    private List<String> menuItemsList;
 
     public Menu() {
         this.menuMap = new HashMap<>();
