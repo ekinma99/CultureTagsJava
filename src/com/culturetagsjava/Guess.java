@@ -3,15 +3,15 @@ package com.culturetagsjava;
 import java.util.Scanner;
 
 public class Guess {
-    public String myGuess(String word) {
-        return word;
+
+    private Scanner scanner;
+
+    public Guess(Scanner scanner) {
+        this.scanner = scanner;
     }
 
-    public String myScanner() {
-        Scanner sc = new Scanner(System.in);
-        String word = sc.nextLine();
-        sc.close();
-        return word;
+    public String myGuess() {
+        return scanner.nextLine();
     }
 
 }

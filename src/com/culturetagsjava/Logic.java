@@ -48,20 +48,15 @@ public class Logic {
         return players;
     }
 
-    public void compareAmountOfMembers(Team tA, Team tB) {
-        int totalPlayersA = tA.amountOfPlayers();
-        int totalPlayersB = tB.amountOfPlayers();
-        compareAmountOfMembers(totalPlayersA, totalPlayersB);
-    }
-
-    public void compareAmountOfMembers(int x, int y) {
-        if (x != y) {
+    public boolean compareAmountOfMembers(Team tA, Team tB) {
+        if (tA.amountOfPlayers() != tB.amountOfPlayers()) {
             System.out.println("teams are not even");
             System.out.println("add more players");
-            System.exit(0);
+        } else {
+            System.out.println("Team A has\t" + tA.amountOfPlayers() + "\tmembers");
+            System.out.println("Team B has\t" + tB.amountOfPlayers() + "\tmembers");
         }
-        System.out.println("Team A have\t" + x + "\tmembers");
-        System.out.println("Team B have\t" + y + "\tmembers");
+        return tA.amountOfPlayers() != tB.amountOfPlayers();
     }
 
     public void biggerNumberStart(int x, int y) {
@@ -124,8 +119,8 @@ public class Logic {
             String playerName = t.playerTurn(counter);
             System.out.println(playerName + "\tIts Guessing");
             System.out.println("enter your word");
-            String word = guess.myScanner();
-            String myWord = guess.myGuess(word);
+            String word = guess.myGuess();
+            String myWord = word;
             if (myWord.equals(assignedCard)) {
                 System.out.println("you won team " + t.getTeamName());
                 System.exit(0);
