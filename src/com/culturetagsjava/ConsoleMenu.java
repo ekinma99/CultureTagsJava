@@ -33,8 +33,7 @@ public class ConsoleMenu {
         System.out.println("#### Instructions");
         System.out.println("#### Play Game");
         System.out.println("#### Add New Cards");
-        Scanner scan = new Scanner(System.in);
-        String option = scan.nextLine();
+        String option = this.scanner.nextLine();
         optionAction(option);
     }
 
