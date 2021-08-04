@@ -12,9 +12,13 @@ public class ConsoleMenu {
      * Takes user input if equal to instructions -> if equal Play Game -> if equal
      * Add New Cards
      */
-    public static void main(String[] args) throws InterruptedException {
-        ConsoleMenu cs = new ConsoleMenu();
-        cs.displayMenu();
+
+    private Scanner scanner;
+    private GameMain gameMain;
+    
+    public ConsoleMenu(Scanner scanner, GameMain gameMain) {
+        this.scanner = scanner;
+        this.gameMain = gameMain;
     }
 
     public void displayMenu() throws InterruptedException {
@@ -38,7 +42,7 @@ public class ConsoleMenu {
         if (chosenAction.equals("Instructions")) {
             System.out.println("Instructions are currently unavailable");
         } else if (chosenAction.equals("Play Game")) {
-            Main sc = new Main();
+            this.gameMain.run();
         } else if (chosenAction.equals("Add New Cards")) {
             System.out.println("Add New Cards feature is currently unavailable.");
         } else {
