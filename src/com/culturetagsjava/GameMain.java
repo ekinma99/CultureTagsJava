@@ -3,13 +3,13 @@ package com.culturetagsjava;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class GameMain {
 
     private Scanner scanner;
     private Menu mainMenu;
     private Logic logic;
 
-    public Main(Scanner scanner, Menu mainMenu, Logic logic) {
+    public GameMain(Scanner scanner, Menu mainMenu, Logic logic) {
         this.scanner = scanner;
         this.mainMenu = mainMenu;
         this.logic = logic;
@@ -69,7 +69,7 @@ public class Main {
         DealCards dealCards = new DealCards();
         Guess guess = new Guess(scanner);
         Logic logic = new Logic(scanner, dealCards, guess);
-        Main main = new Main(scanner, mainMenu, logic);
+        GameMain main = new GameMain(scanner, mainMenu, logic);
         main.run();
     }
 }
