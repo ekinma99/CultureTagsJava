@@ -6,12 +6,10 @@ import java.util.Scanner;
 public class GameMain {
 
     private Scanner scanner;
-    private Menu mainMenu;
     private Logic logic;
 
-    public GameMain(Scanner scanner, Menu mainMenu, Logic logic) {
+    public GameMain(Scanner scanner, Logic logic) {
         this.scanner = scanner;
-        this.mainMenu = mainMenu;
         this.logic = logic;
     }
 
@@ -25,7 +23,7 @@ public class GameMain {
         return t;
     }
 
-    private void run() {
+    public void run() {
         ArrayList<Team> teams = new ArrayList<>();
         // Adding players Team A and B
         for (String team : new String[] { "A", "B" }) {
@@ -63,13 +61,4 @@ public class GameMain {
         this.scanner.close();
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Menu mainMenu = new Menu();
-        DealCards dealCards = new DealCards();
-        Guess guess = new Guess(scanner);
-        Logic logic = new Logic(scanner, dealCards, guess);
-        GameMain main = new GameMain(scanner, mainMenu, logic);
-        main.run();
-    }
 }
