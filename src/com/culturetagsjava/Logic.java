@@ -7,17 +7,24 @@ public class Logic {
     private DealCards cardMeaning;
     private Guess guess;
 
-    private String wth = cardMeaning.wth();
-    private String lalaland = cardMeaning.lalaland();
-    private String mma = cardMeaning.mma();
-    private String ww2 = cardMeaning.ww2();
-    private String rt = cardMeaning.rt();
-    private String ftp = cardMeaning.ftp();
+    private String wth;
+    private String lalaland;
+    private String mma;
+    private String ww2;
+    private String rt;
+    private String ftp;
 
     public Logic(Scanner scanner, DealCards dealCards, Guess guess) {
         this.scanner = scanner;
         this.cardMeaning = dealCards;
         this.guess = guess;
+        
+        this.wth = cardMeaning.wth();
+        this.lalaland = cardMeaning.lalaland();
+        this.mma = cardMeaning.mma();
+        this.ww2 = cardMeaning.ww2();
+        this.rt = cardMeaning.rt();
+        this.ftp = cardMeaning.ftp();
     }
 
     public void textPlayers(String team) {

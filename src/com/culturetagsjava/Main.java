@@ -20,12 +20,12 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Menu mainMenu = new Menu();
         DealCards dealCards = new DealCards();
         Guess guess = new Guess(scanner);
         Logic logic = new Logic(scanner, dealCards, guess);
         GameMain gameMain = new GameMain(scanner, logic);
-        ConsoleMenu consoleMenu = new ConsoleMenu(scanner, gameMain);
+        Menu mainMenu = new Menu();
+        ConsoleMenu consoleMenu = new ConsoleMenu(scanner, mainMenu, gameMain);
         Main main = new Main(consoleMenu);
         main.run();
     }

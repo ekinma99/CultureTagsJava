@@ -14,10 +14,12 @@ public class ConsoleMenu {
      */
 
     private Scanner scanner;
+    private Menu mainMenu;
     private GameMain gameMain;
     
-    public ConsoleMenu(Scanner scanner, GameMain gameMain) {
+    public ConsoleMenu(Scanner scanner, Menu mainMenu, GameMain gameMain) {
         this.scanner = scanner;
+        this.mainMenu = mainMenu;
         this.gameMain = gameMain;
     }
 
