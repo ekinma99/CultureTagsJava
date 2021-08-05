@@ -96,8 +96,8 @@ public class Team implements TeamsFeatures {
     
     // added
 
-    public String[] __getTeam() {
-        return this.team;
+    public int __getTeamLength() {
+        return this.team.length;
     }
 
     public String getTeamName() {
