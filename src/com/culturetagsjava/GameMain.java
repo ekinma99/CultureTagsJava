@@ -54,9 +54,9 @@ public class GameMain {
         // the other team start guessing each =one have one opportunity
         System.out.println("________________________________________________");
         String playerA = tA.AssignCardsPlayer1(1);
-        this.logic.assignCardsToLetters(b, c, playerA, tA, tA.__getTeam().length);
+        this.logic.assignCardsToLetters(b, c, playerA, tA, tA.__getTeamLength());
         String playerB = tB.AssignCardsPlayer1(1);
-        this.logic.assignCardsToLetters(b, c, playerB, tB, tB.__getTeam().length);
+        this.logic.assignCardsToLetters(b, c, playerB, tB, tB.__getTeamLength());
 
         this.scanner.close();
     }
