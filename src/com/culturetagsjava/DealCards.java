@@ -18,6 +18,9 @@ public class DealCards {
 
     private CardDeck cardDeck;
 
+    public DealCards() {
+        this(new CardDeck());
+    }
     public DealCards(CardDeck cardDeck) {
         this.cardDeck = cardDeck;
     }
