@@ -36,11 +36,11 @@ public class CardDeck {
      */
     private boolean removedFlag;
 
-    CardDeck() {
-        cardsList = new ArrayList<>();
-        addedCards = new ArrayList<>();
-        phraseCategoryMap = new HashMap<>();
-        removedFlag = false;
+    public CardDeck() {
+        this.cardsList = new ArrayList<>();
+        this.addedCards = new ArrayList<>();
+        this.phraseCategoryMap = new HashMap<>();
+        this.removedFlag = false;
     }
 
     /**

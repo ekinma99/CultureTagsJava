@@ -12,6 +12,12 @@ public class DealCards {
     private String f = "WTH";
     private String g = "FTP";
 
+    private CardDeck cardDeck;
+
+    public DealCards(CardDeck cardDeck) {
+        this.cardDeck = cardDeck;
+    }
+
     public String ww2() {
         String a = "war world 2";
         return a;

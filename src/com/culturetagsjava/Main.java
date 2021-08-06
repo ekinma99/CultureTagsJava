@@ -19,8 +19,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        String cardDeckFilename = "map.txt";
         Scanner scanner = new Scanner(System.in);
-        DealCards dealCards = new DealCards();
+        CardDeck cardDeck = new CardDeck();
+        cardDeck.loadCards(cardDeckFilename);
+        DealCards dealCards = new DealCards(cardDeck);
         Guess guess = new Guess(scanner);
         Logic logic = new Logic(scanner, dealCards, guess);
         GameMain gameMain = new GameMain(scanner, logic);
