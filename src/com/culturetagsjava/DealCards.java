@@ -5,12 +5,16 @@ import java.util.Collections;
 
 public class DealCards {
     // These are supposed to be the cards
-    private String a = "WW2";
-    private String b = "MMA";
-    private String c = "LALALAND";
-    private String d = "RT";
-    private String f = "WTH";
-    private String g = "FTP";
+    private String a = "FIUYMI";
+    private String b = "LITBM";
+    private String c = "TIWISLWDC";
+    private String d = "TMHTD";
+    private String e = "IGSWIMKICHS";
+    private String f = "BOAFFT";
+    private String g = "IFYKYK";
+    private String h = "WYGAC";
+    private String i = "IBYITWAICTYO";
+    private String j= "KYHU";
 
     private CardDeck cardDeck;
 
@@ -18,34 +22,50 @@ public class DealCards {
         this.cardDeck = cardDeck;
     }
 
-    public String ww2() {
-        String a = "war world 2";
+    public String wygac() {
+        String a = "When You Get a Chance";
         return a;
     }
 
-    public String mma() {
-        String b = "mixed martial arts";
+    public String ifykyk() {
+        String b = "If You Know You Know";
         return b;
     }
 
-    public String lalaland() {
-        String c = "la la land";
+    public String ibyitwaictyo() {
+        String c = "I Brought You In This World And I Can Take You Out";
         return c;
     }
 
-    public String rt() {
-        String d = "radio tv";
+    public String boafft() {
+        String d = "Birds of A Feather Flock Together";
         return d;
     }
 
-    public String wth() {
-        String f = "what the hell";
-        return f;
+    public String igswimkichs() {
+        String e= " I Get So Weak In My Knees I Can Hardly Speak ";
+        return e;
     }
 
-    public String ftp() {
-        String g = "file transfer protocol";
+    public String tmhtd() {
+        String f = "Teach Me How To Dougie";
+        return f;
+    }
+    public String tiwislwdc() {
+        String g = "This Is What It Sounds Like When Doves Cry";
         return g;
+    }
+    public String litbm() {
+        String h = "Laughter Is The Best Medicine";
+        return h;
+    }
+    public String fiuymi() {
+        String i = "Fake It Until You Make It";
+        return i;
+    }
+    public String kyhu() {
+        String j = "Keep Your Head Up";
+        return j;
     }
 
     // Cards are stored in this arrayList
@@ -57,8 +77,13 @@ public class DealCards {
         cards.add(b);
         cards.add(c);
         cards.add(d);
+        cards.add(e);
         cards.add(f);
         cards.add(g);
+        cards.add(h);
+        cards.add(i);
+        cards.add(j);
+
         Collections.shuffle(cards);
         return cards;
     }

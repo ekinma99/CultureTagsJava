@@ -3,16 +3,7 @@ package com.culturetagsjava;
 import java.util.Scanner;
 
 public class ConsoleMenu {
-    // 3 menu options
-    /*
-     * Instructions Play Game Add New Cards
-     */
-    // Have a constructor
-    /*
-     * Takes user input if equal to instructions -> if equal Play Game -> if equal
-     * Add New Cards
-     */
-
+    
     private Scanner scanner;
     private Menu mainMenu;
     private GameMain gameMain;
@@ -24,27 +15,36 @@ public class ConsoleMenu {
     }
 
     public void displayMenu() throws InterruptedException {
-        // Make the following into a method
-        System.out.println("-----------------------------------");
-        System.out.println("##### Welcome to Culture Tags #####");
-        System.out.println("-----------------------------------");
+        System.out.println(" ##### Welcome to Culture Tags #####");
+        System.out.println("------------------------------------");
+        System.out.println("A Game for People Who Love Hashtags!");
+        System.out.println("------------------------------------");
         System.out.println();
-        System.out.println("Please type one of the following:");
-        System.out.println("Please note case sensitivity.");
+        System.out.println("--------------CREATORS--------------");
+        System.out.println("Java Program By: Nahom E., Nelson E.,");
+        System.out.println("Mehki H., Elmiche K., Kaitlyn R.");
+        System.out.println("------------------------------------");
         System.out.println();
-        System.out.println("#### Instructions");
-        System.out.println("#### Play Game");
-        System.out.println("#### Add New Cards");
-        String option = this.scanner.nextLine();
+        System.out.println("----------------MENU----------------");
+        System.out.println("Please type in the letter associated");
+        System.out.println("with your option of choice.");
+        System.out.println("Please Note **Case Sensitvity**");
+        System.out.println();
+        System.out.println("A Instructions");
+        System.out.println("B Play Game");
+        System.out.println("C Add New Cards");
+        System.out.println("------------------------------------");
+        Scanner scan = new Scanner(System.in);
+        String option = scanner.nextLine();
         optionAction(option);
     }
 
     public void optionAction(String chosenAction) throws InterruptedException {
-        if (chosenAction.equals("Instructions")) {
+        if (chosenAction.equals("A")) {
             System.out.println("Instructions are currently unavailable");
-        } else if (chosenAction.equals("Play Game")) {
-            this.gameMain.run();
-        } else if (chosenAction.equals("Add New Cards")) {
+        } else if (chosenAction.equals("B")) {
+             gameMain.run();
+        } else if (chosenAction.equals("C")) {
             System.out.println("Add New Cards feature is currently unavailable.");
         } else {
             displayMenu();

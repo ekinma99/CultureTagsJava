@@ -1,5 +1,7 @@
 package com.culturetagsjava;
-
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Logic {
@@ -7,25 +9,41 @@ public class Logic {
     private DealCards cardMeaning;
     private Guess guess;
 
-    private String wth;
-    private String lalaland;
-    private String mma;
-    private String ww2;
-    private String rt;
-    private String ftp;
+  /*  long millis=System.currentTimeMillis();
+    Date date=new java.sql.Date(millis);
+    private String win = "loser";
+    private String lose = "winner"; */
+    private String kyhu;
+    private String wygac;
+    private String ifykyk;
+    private String ibyitwaictyo;
+    private String boafft;
+    private String igswimkichs;
+    private String tmhtd;
+    private String tiwislwdc;
+    private String litbm;
+    private String fiuymi;
 
     public Logic(Scanner scanner, DealCards dealCards, Guess guess) {
         this.scanner = scanner;
         this.cardMeaning = dealCards;
         this.guess = guess;
-        
-        this.wth = cardMeaning.wth();
-        this.lalaland = cardMeaning.lalaland();
-        this.mma = cardMeaning.mma();
-        this.ww2 = cardMeaning.ww2();
-        this.rt = cardMeaning.rt();
-        this.ftp = cardMeaning.ftp();
+        this.kyhu = cardMeaning.kyhu();
+        this.wygac = cardMeaning.wygac();
+        this.ifykyk = cardMeaning.ifykyk();
+        this.ibyitwaictyo = cardMeaning.ibyitwaictyo();
+        this.boafft = cardMeaning.boafft();
+        this.igswimkichs = cardMeaning.igswimkichs();
+        this.tmhtd = cardMeaning.tmhtd();
+        this.tiwislwdc = cardMeaning.tiwislwdc();
+        this.litbm = cardMeaning.litbm();
+        this.fiuymi = cardMeaning.fiuymi();
     }
+
+    public String guesserToMySql(int b, int c){
+              String guesser = (b>c) ? "A" : "B";
+              return guesser;
+          }
 
     public void textPlayers(String team) {
         if (!team.equals("A") || !team.equals("B")) {
@@ -47,6 +65,7 @@ public class Logic {
     }
 
     public void biggerNumberStart(int x, int y) {
+        // doesn't ask to try again
         String winnerNumber = (x > y) ? "highest number is\t" + x : "highest number is\t" + y;
         System.out.println(winnerNumber);
     }
@@ -56,7 +75,8 @@ public class Logic {
         do {
             System.out.println("insert players");
             player = this.scanner.nextLine();
-            team.addPlayer(player);
+            team.addPlayer(player); // when line 72 is uncommented, delete this
+            // team.addPlayer(player.toUpperCase(Locale.ROOT));
             count++;
         } while (count < amountOfPlayers);
     }
@@ -67,29 +87,45 @@ public class Logic {
         if (b < c) {
             player = t.AssignCardsPlayer1(1);
             String assignedCard = t.assignedCard();
-            if (assignedCard.contains("WW2")) {
-                assignedCard = ww2;
-                hint = "war";
+            if (assignedCard.contains("WYGAC")) {
+                assignedCard = wygac;
+                hint = "A General Saying";
             }
-            if (assignedCard.contains("MMA")) {
-                assignedCard = mma;
-                hint = "fight";
+            if (assignedCard.contains("IFYKYK")) {
+                assignedCard = ifykyk;
+                hint = " A General Saying";
             }
-            if (assignedCard == "LALALAND") {
-                assignedCard = lalaland;
-                hint = "movie";
+            if (assignedCard == "IBYITWAICTYO") {
+                assignedCard = ibyitwaictyo;
+                hint = " A Mother Saying";
             }
-            if (assignedCard == "RT") {
-                assignedCard = rt;
-                hint = "broadcasting";
+            if (assignedCard == "BOAFFT") {
+                assignedCard = boafft;
+                hint = " A General Saying";
             }
-            if (assignedCard == "WTH") {
-                assignedCard = wth;
-                hint = "slang";
+            if (assignedCard == "IGSWIMKICHS") {
+                assignedCard = igswimkichs;
+                hint = "song";
             }
-            if (assignedCard == "FTP") {
-                assignedCard = ftp;
-                hint = "networking";
+            if (assignedCard == "TMHTD") {
+                assignedCard = tmhtd;
+                hint = "song";
+            }
+            if (assignedCard == "TIWISLWDC") {
+                assignedCard = tiwislwdc;
+                hint = "song";
+            }
+            if (assignedCard == "LITBM") {
+                assignedCard = litbm;
+                hint = "cliche";
+            }
+            if (assignedCard == "FIUYMI") {
+                assignedCard = fiuymi;
+                hint = "cliche";
+            }
+            if (assignedCard == "KYHU") {
+                assignedCard = kyhu;
+                hint = "cliche";
             }
             // System.out.println("playerB is\t" + player); // TODO: who is playerB?
             System.out.println("player is\t" + player);
@@ -109,8 +145,9 @@ public class Logic {
             String word = guess.myGuess();
             String myWord = word;
             if (myWord.equals(assignedCard)) {
-                System.out.println("you won team " + t.getTeamName());
-                System.exit(0);
+                System.out.println("Your team won " + t.getTeamName());
+                // connect.db( win, lose, assignedCard, guesserToMySql(b,c), (java.sql.Date) date);System.exit(1);
+                System.exit(0); // delete if 126 is uncommented
             }
             if (myWord != assignedCard) {
                 System.out.println("Next Player " + t.getTeamName());
