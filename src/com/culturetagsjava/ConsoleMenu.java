@@ -41,7 +41,7 @@ public class ConsoleMenu {
 
     public void optionAction(String chosenAction) throws InterruptedException {
         if (chosenAction.equals("A")) {
-            System.out.println("Instructions are currently unavailable");
+            Instructions instructions = new Instructions(); 
         } else if (chosenAction.equals("B")) {
              gameMain.run();
         } else if (chosenAction.equals("C")) {

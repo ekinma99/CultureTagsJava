@@ -85,7 +85,7 @@ public class Logic {
         int counter = 0;
         String hint = "";
         if (b < c) {
-            player = t.AssignCardsPlayer1(1);
+            player = t.AssignCardsPlayer1(1); // need to store the categories    
             String assignedCard = t.assignedCard();
             if (assignedCard.contains("WYGAC")) {
                 assignedCard = wygac;
@@ -127,7 +127,6 @@ public class Logic {
                 assignedCard = kyhu;
                 hint = "cliche";
             }
-            // System.out.println("playerB is\t" + player); // TODO: who is playerB?
             System.out.println("player is\t" + player);
             System.out.println("assigned card is\t" + t.assignedCard());
             System.out.println("hint: " + hint);
