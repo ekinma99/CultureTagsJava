@@ -16,6 +16,14 @@ public class DealCards {
     private String i = "IBYITWAICTYO";
     private String j= "KYHU";
 
+    private CardDeck cardDeck;
+
+    public DealCards() {
+        this(new CardDeck());
+    }
+    public DealCards(CardDeck cardDeck) {
+        this.cardDeck = cardDeck;
+    }
 
     public String wygac() {
         String a = "When You Get a Chance";

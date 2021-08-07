@@ -1,5 +1,7 @@
 package com.culturetagsjava;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -19,8 +21,16 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        String cardDeckFilename = "map.txt";
         Scanner scanner = new Scanner(System.in);
-        DealCards dealCards = new DealCards();
+        CardDeck cardDeck = new CardDeck();
+        try {
+            new File(cardDeckFilename).createNewFile(); // make sure the file exists
+            cardDeck.loadCards(cardDeckFilename);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        DealCards dealCards = new DealCards(cardDeck);
         Guess guess = new Guess(scanner);
         Logic logic = new Logic(scanner, dealCards, guess);
         GameMain gameMain = new GameMain(scanner, logic);

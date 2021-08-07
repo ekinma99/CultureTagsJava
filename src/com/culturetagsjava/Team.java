@@ -8,13 +8,16 @@ public class Team implements TeamsFeatures {
 
     private String[] team;
     private int counter;
-    private DealCards dealCards = new DealCards();
+    private DealCards dealCards;
     private ArrayList<String> c = dealCards.cards();
     private String teamName;
     private static int numberOfInstances = 0;
 
     // Setting amount of players in team in dynamic array
     public Team(int amountOfPlayers) {
+        this(amountOfPlayers, new DealCards());
+    }
+    public Team(int amountOfPlayers, DealCards dealCards) {
         Team.numberOfInstances++;
         team = new String[amountOfPlayers];
         switch (Team.numberOfInstances) {
@@ -28,6 +31,7 @@ public class Team implements TeamsFeatures {
             default:
                 break;
         }
+        this.dealCards = dealCards;
     }
 
     // Adding players to Array, if Array is filled it automatically generates more

@@ -36,11 +36,11 @@ public class CardDeck {
      */
     private boolean removedFlag;
 
-    CardDeck() {
-        cardsList = new ArrayList<>();
-        addedCards = new ArrayList<>();
-        phraseCategoryMap = new HashMap<>();
-        removedFlag = false;
+    public CardDeck() {
+        this.cardsList = new ArrayList<>();
+        this.addedCards = new ArrayList<>();
+        this.phraseCategoryMap = new HashMap<>();
+        this.removedFlag = false;
     }
 
     /**
@@ -79,7 +79,7 @@ public class CardDeck {
      * 
      * @param filename
      */
-    void loadCards(String filename) {
+    void loadCards(String filename) throws FileNotFoundException {
         try {
             FileReader fileReader = new FileReader(filename);
             BufferedReader br = new BufferedReader(fileReader);
@@ -153,7 +153,12 @@ public class CardDeck {
 
         // Load pre-made cards from a file
         CardDeck dealer = new CardDeck();
-        dealer.loadCards(filename);
+        try {
+            new java.io.File(filename).createNewFile();
+            dealer.loadCards(filename);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         // Make a new empty CardDealer
         dealer = new CardDeck();
