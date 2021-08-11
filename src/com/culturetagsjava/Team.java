@@ -9,7 +9,7 @@ public class Team implements TeamsFeatures {
     private String[] team;
     private int counter;
     private DealCards dealCards;
-    private ArrayList<String> c = dealCards.cards();
+    private ArrayList<String> c;
     private String teamName;
     private static int numberOfInstances = 0;
 
