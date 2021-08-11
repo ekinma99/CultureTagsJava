@@ -17,7 +17,7 @@ public class GameMain {
         this.logic.textPlayers(team);
         int amountOfPlayers = this.scanner.nextInt();
         Team t = new Team(amountOfPlayers);
-        System.out.println("enter players name");
+        System.out.println("Enter players name");
         String playersName = this.scanner.nextLine();
         this.logic.addPlayer(playersName, t, amountOfPlayers);
         return t;

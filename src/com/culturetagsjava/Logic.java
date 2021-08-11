@@ -49,7 +49,7 @@ public class Logic {
         if (!team.equals("A") && !team.equals("B")) {
             return;
         } else {
-            System.out.println("enter amount of players for team " + team);
+            System.out.printf("How many players are on team %s?\n", team);
         }
     }
 
@@ -73,7 +73,7 @@ public class Logic {
     public void addPlayer(String player, Team team, int amountOfPlayers) {
         int count = 0;
         do {
-            System.out.println("insert players");
+            // System.out.println("insert players");
             player = this.scanner.nextLine();
             team.addPlayer(player); // when line 72 is uncommented, delete this
             // team.addPlayer(player.toUpperCase(Locale.ROOT));
