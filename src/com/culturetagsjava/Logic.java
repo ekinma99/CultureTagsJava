@@ -46,7 +46,7 @@ public class Logic {
           }
 
     public void textPlayers(String team) {
-        if (!team.equals("A") || !team.equals("B")) {
+        if (!team.equals("A") && !team.equals("B")) {
             return;
         } else {
             System.out.println("enter amount of players for team " + team);
