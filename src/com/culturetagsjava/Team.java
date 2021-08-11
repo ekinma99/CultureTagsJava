@@ -49,23 +49,17 @@ public class Team implements TeamsFeatures {
     // printing all players if needed
     @Override
     public void getPlayers() {
-        for (int i = 0; i < counter; i++) {
-        }
         System.out.println(Arrays.toString(team));
     }
 
     @Override
     public String playerTurn(int position) {
-        for (int i = 0; i < counter; i++) {
-        }
         return team[position];
     }
 
     // Assign cards to players
     @Override
     public String AssignCardsPlayer1(int position) {
-        for (int i = 0; i < counter; i++) {
-        }
         return team[position];
     }
 
