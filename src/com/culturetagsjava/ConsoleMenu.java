@@ -3,11 +3,11 @@ package com.culturetagsjava;
 import java.util.Scanner;
 
 public class ConsoleMenu {
-    
+
     private Scanner scanner;
     private Menu mainMenu;
     private GameMain gameMain;
-    
+
     public ConsoleMenu(Scanner scanner, Menu mainMenu, GameMain gameMain) {
         this.scanner = scanner;
         this.mainMenu = mainMenu;
@@ -28,7 +28,6 @@ public class ConsoleMenu {
         System.out.println("----------------MENU----------------");
         System.out.println("Please type in the letter associated");
         System.out.println("with your option of choice.");
-        System.out.println("Please Note **Case Sensitvity**");
         System.out.println();
         System.out.println("A Instructions");
         System.out.println("B Play Game");
@@ -40,10 +39,11 @@ public class ConsoleMenu {
     }
 
     public void optionAction(String chosenAction) throws InterruptedException {
+        chosenAction = chosenAction.toUpperCase();
         if (chosenAction.equals("A")) {
-            Instructions instructions = new Instructions(); 
+            Instructions instructions = new Instructions();
         } else if (chosenAction.equals("B")) {
-             gameMain.run();
+            this.gameMain.run();
         } else if (chosenAction.equals("C")) {
             System.out.println("Add New Cards feature is currently unavailable.");
         } else {
