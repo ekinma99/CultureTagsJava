@@ -1,13 +1,11 @@
 package com.culturetagsjava;
 
 public interface TeamsFeatures {
-     public void getPlayers();
-
-     public String AssignCardsPlayer1(int position);
+     public void printPlayers();
 
      public String assignedCard();
 
-     public String playerTurn(int position);
+     public String getPlayer(int position);
 
      public int amountOfPlayers();
 

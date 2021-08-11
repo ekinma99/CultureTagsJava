@@ -29,7 +29,7 @@ public class GameMain {
         for (String team : new String[] { "A", "B" }) {
             Team t = addPlayer(team);
             // getting both team players printed
-            t.getPlayers();
+            t.printPlayers();
             teams.add(t);
         }
 
@@ -53,10 +53,10 @@ public class GameMain {
         // card with the letters and hint is assingned
         // the other team start guessing each =one have one opportunity
         System.out.println("________________________________________________");
-        String playerA = tA.AssignCardsPlayer1(1);
-        this.logic.assignCardsToLetters(b, c, playerA, tA, tA.__getTeamLength());
-        String playerB = tB.AssignCardsPlayer1(1);
-        this.logic.assignCardsToLetters(b, c, playerB, tB, tB.__getTeamLength());
+        String playerA = tA.AssignCardsPlayer1(0); // previously was 1
+        this.logic.assignCardsToLetters(b, c, playerA, tA, tA.getTeamSize());
+        String playerB = tB.AssignCardsPlayer1(0);
+        this.logic.assignCardsToLetters(b, c, playerB, tB, tB.getTeamSize());
 
         this.scanner.close();
     }

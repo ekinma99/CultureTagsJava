@@ -6,11 +6,12 @@ import java.util.Random;
 
 public class Team implements TeamsFeatures {
 
-    private String[] team;
+    private String[] teamPlayers;
     private int counter;
     private DealCards dealCards;
     private ArrayList<String> c;
     private String teamName;
+    private int teamSize;
     private static int numberOfInstances = 0;
 
     // Setting amount of players in team in dynamic array
@@ -19,7 +20,9 @@ public class Team implements TeamsFeatures {
     }
     public Team(int amountOfPlayers, DealCards dealCards) {
         Team.numberOfInstances++;
-        team = new String[amountOfPlayers];
+        this.teamPlayers = new String[amountOfPlayers];
+        this.teamSize = 0;
+        this.dealCards = dealCards;
         switch (Team.numberOfInstances) {
             case 1:
                 this.teamName = "A";
@@ -27,40 +30,28 @@ public class Team implements TeamsFeatures {
             case 2:
                 this.teamName = "B";
                 break;
-        
             default:
+                this.teamName = "";
                 break;
         }
-        this.dealCards = dealCards;
     }
 
     // Adding players to Array, if Array is filled it automatically generates more
-    // space in memory
+    // space in memory. Also, it will never need to resize because team sizes are
+    // constant.
     public void addPlayer(String newPlayer) {
-        if (team.length == counter) {
-            String[] teamResize = new String[counter * 2];
-            for (int i = 0; i < counter; i++)
-                teamResize[i] = team[i];
-            team = teamResize;
-        }
-        team[counter++] = newPlayer;
+        this.teamPlayers[this.teamSize++] = newPlayer;
     }
 
     // printing all players if needed
     @Override
-    public void getPlayers() {
-        System.out.println(Arrays.toString(team));
+    public void printPlayers() {
+        System.out.println(Arrays.toString(teamPlayers));
     }
 
     @Override
-    public String playerTurn(int position) {
-        return team[position];
-    }
-
-    // Assign cards to players
-    @Override
-    public String AssignCardsPlayer1(int position) {
-        return team[position];
+    public String getPlayer(int position) {
+        return teamPlayers[position];
     }
 
     // Assigned card
@@ -76,7 +67,7 @@ public class Team implements TeamsFeatures {
     public int amountOfPlayers() {
         int x = 0;
         for (int i = 0; i < counter; i++) {
-            if (team[i] == null)
+            if (teamPlayers[i] == null)
                 break;
             x = i;
         }
@@ -94,8 +85,8 @@ public class Team implements TeamsFeatures {
     
     // added
 
-    public int __getTeamLength() {
-        return this.team.length;
+    public int getTeamSize() {
+        return this.teamSize;
     }
 
     public String getTeamName() {

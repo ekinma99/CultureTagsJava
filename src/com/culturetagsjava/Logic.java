@@ -85,7 +85,7 @@ public class Logic {
         int counter = 0;
         String hint = "";
         if (b < c) {
-            player = t.AssignCardsPlayer1(1); // need to store the categories    
+            player = t.getPlayer(1); // need to store the categories    
             String assignedCard = t.assignedCard();
             if (assignedCard.contains("WYGAC")) {
                 assignedCard = wygac;
@@ -138,7 +138,7 @@ public class Logic {
 
     public void algo(int counter, int amountOfPlayers, Team t, String assignedCard) {
         if (counter < amountOfPlayers) {
-            String playerName = t.playerTurn(counter);
+            String playerName = t.getPlayer(counter);
             System.out.println(playerName + "\tIts Guessing");
             System.out.println("enter your word");
             String word = guess.myGuess();
