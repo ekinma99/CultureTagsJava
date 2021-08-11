@@ -61,7 +61,7 @@ public class Logic {
             System.out.println("Team A has\t" + tA.amountOfPlayers() + "\tmembers");
             System.out.println("Team B has\t" + tB.amountOfPlayers() + "\tmembers");
         }
-        return tA.amountOfPlayers() != tB.amountOfPlayers();
+        return tA.amountOfPlayers() == tB.amountOfPlayers();
     }
 
     public void biggerNumberStart(int x, int y) {
